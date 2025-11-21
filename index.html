@@ -1,253 +1,159 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html><html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Brajesh Rawat - PyLearner</title>
-    <style>
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            scroll-behavior: smooth;
-            background: #f4f4f4;
-        }
-
-        /* Header */
-        header {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background: #000;
-            color: #fff;
-            padding: 15px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            z-index: 1000;
-        }
-        header h2 {
-            margin: 0;
-        }
-
-        /* Dropdown Menu */
-        nav {
-            display: flex;
-            gap: 20px;
-        }
-        .dropdown {
-            position: relative;
-        }
-        .dropdown > a {
-            color: #fff;
-            text-decoration: none;
-            font-size: 16px;
-            padding: 8px;
-        }
-        .dropdown:hover > a {
-            color: #00e1ff;
-        }
-        .dropdown-menu {
-            display: none;
-            position: absolute;
-            top: 35px;
-            background: #000;
-            padding: 10px;
-            border-radius: 6px;
-            min-width: 150px;
-        }
-        .dropdown-menu a {
-            display: block;
-            padding: 8px;
-            color: #fff;
-            text-decoration: none;
-        }
-        .dropdown-menu a:hover {
-            background: #00e1ff;
-            color: #000;
-        }
-        .dropdown:hover .dropdown-menu {
-            display: block;
-        }
-
-        /* Sections */
-        section {
-            padding: 100px 20px;
-            text-align: center;
-            animation: fadeIn 1.2s ease;
-        }
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        .home {
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            background: linear-gradient(135deg, #00c6ff, #0072ff);
-            color: white;
-        }
-        .profile-img {
-            width: 160px;
-            height: 160px;
-            border-radius: 50%;
-            background: #fff;
-            margin-bottom: 15px;
-            object-fit: cover;
-        }
-
-        .container {
-            max-width: 1000px;
-            margin: auto;
-            text-align: left;
-        }
-
-        h2 {
-            text-align: center;
-        }
-
-        /* Footer */
-        footer {
-            background: #000;
-            color: #fff;
-            padding: 20px;
-            text-align: center;
-        }
-    </style>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Brajesh Rawat - Portfolio</title>
+<style>
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    scroll-behavior: smooth;
+    background: #f4f4f4;
+    transition: 0.3s;
+}
+.dark-mode {
+    background: #121212;
+    color: #e4e4e4;
+}
+/* Header */
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: #000;
+    color: #fff;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000;
+}
+header h2 { margin: 0; }
+/* Hamburger */
+.hamburger { display: none; cursor: pointer; }
+.hamburger div {
+    width: 25px; height: 3px;
+    background: #fff;
+    margin: 5px;
+}
+/* Navbar */
+nav {
+    display: flex;
+    gap: 20px;
+}
+nav a {
+    color: #fff;
+    text-decoration: none;
+    padding: 8px;
+}
+/* Mobile */
+@media(max-width:768px){
+    nav { display: none; flex-direction: column; background:#000; position:absolute; top:60px; right:0; width:200px; }
+    nav.show { display: flex; }
+    .hamburger { display: block; }
+}
+/* Dark Mode Toggle */
+.toggle-btn {
+    background:#00e1ff;
+    border:none;
+    padding:8px 12px;
+    border-radius:6px;
+    cursor:pointer;
+}
+/* Home Section */
+.home {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #00c6ff, #0072ff);
+    color: white;
+    padding-top:70px;
+}
+.profile-img {
+    width: 160px; height: 160px;
+    border-radius: 50%; background: #fff;
+    object-fit: cover;
+}
+/* Slider */
+.slider {
+    width: 90%; max-width: 700px;
+    overflow: hidden;
+    border-radius: 10px;
+    margin-top: 20px;
+}
+.slides {
+    display: flex;
+    width: 300%;
+    animation: slide 10s infinite;
+}
+.slides img {
+    width: 100%; border-radius: 10px;
+}
+@keyframes slide {
+    0% { transform: translateX(0); }
+    33% { transform: translateX(-100%); }
+    66% { transform: translateX(-200%); }
+}
+/* Social Icons */
+.social a {
+    margin: 0 10px;
+    font-size: 25px;
+    color: white;
+    text-decoration: none;
+}
+/* Visitor Counter */
+.counter { background:#fff; padding:10px; border-radius:6px; margin-top:20px; color:#000; }
+footer {
+    background:#000; color:#fff;
+    padding:20px; text-align:center;
+}
+</style>
 </head>
 <body>
-
 <header>
     <h2>Brajesh Rawat</h2>
-    <nav>
-        <div class="dropdown">
-            <a href="#home">Home</a>
-        </div>
-
-        <div class="dropdown">
-            <a href="#about">About</a>
-            <div class="dropdown-menu">
-                <a href="#skills">Skills</a>
-                <a href="#education">Education</a>
-            </div>
-        </div>
-
-        <div class="dropdown">
-            <a href="#projects">Projects</a>
-            <div class="dropdown-menu">
-                <a href="#webdev">Web Development</a>
-                <a href="#pythonpro">Python Projects</a>
-            </div>
-        </div>
-
-        <div class="dropdown">
-            <a href="#notes">Notes</a>
-            <div class="dropdown-menu">
-                <a href="#csnotes">Computer Science</a>
-                <a href="#pycodes">Python Codes</a>
-            </div>
-        </div>
-
-        <div class="dropdown">
-            <a href="#contact">Contact</a>
-        </div>
+    <div class="hamburger" onclick="toggleMenu()">
+        <div></div><div></div><div></div>
+    </div>
+    <nav id="navMenu">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#notes">Notes</a>
+        <a href="#contact">Contact</a>
     </nav>
+    <button class="toggle-btn" onclick="toggleDarkMode()">Dark Mode</button>
 </header>
-
 <section id="home" class="home">
-    <img src="photo.jpg" class="profile-img" alt="Profile Photo" />
-    <h1>PyLearner – Notes & Projects</h1>
-    <p>I'm <b>Brajesh Rawat</b> — explore my portfolio, notes & programming work.</p>
-</section>
-
-<section id="about">
-    <div class="container">
-        <h2>About Me</h2>
-        <p>Write about yourself here. Add your background, goals, achievements, and experience.</p>
+    <img src="photo.jpg" class="profile-img" />
+    <h1>Welcome to My Portfolio</h1>
+    <div class="social">
+        <a href="#">🌐</a>
+        <a href="#">📘</a>
+        <a href="#">📸</a>
+        <a href="#">🐦</a>
     </div>
-</section>
-
-<section id="skills">
-    <div class="container">
-        <h2>Skills</h2>
-        <ul>
-            <li>Python Programming</li>
-            <li>Web Development (HTML, CSS, JS)</li>
-            <li>Data Science Basics</li>
-            <li>Problem Solving</li>
-        </ul>
+    <div class="slider">
+        <div class="slides">
+            <img src="tech1.jpg" />
+            <img src="tech2.jpg" />
+            <img src="tech3.jpg" />
+        </div>
     </div>
+    <div class="counter">Visitors: <span id="count">0</span></div>
 </section>
-
-<section id="education">
-    <div class="container">
-        <h2>Education</h2>
-        <ul>
-            <li>Class 12 – Computer Science</li>
-            <li>Various Programming Certifications</li>
-        </ul>
-    </div>
-</section>
-
-<section id="projects">
-    <div class="container">
-        <h2>Projects</h2>
-        <p>Showcase of top projects.</p>
-    </div>
-</section>
-
-<section id="webdev">
-    <div class="container">
-        <h2>Web Development Projects</h2>
-        <ul>
-            <li>Portfolio Website</li>
-            <li>Student Notes Website</li>
-        </ul>
-    </div>
-</section>
-
-<section id="pythonpro">
-    <div class="container">
-        <h2>Python Projects</h2>
-        <ul>
-            <li>Calculator App</li>
-            <li>Data Entry Management</li>
-            <li>Mini Games</li>
-        </ul>
-    </div>
-</section>
-
-<section id="notes">
-    <div class="container">
-        <h2>Notes for Students</h2>
-        <ul>
-            <li><a href="https://github.com/rawatbr55/rawatbr55.github.io/blob/main/Computer_Science_Syllabius.pdf" target="_blank">Computer Science Syllabus</a></li>
-        </ul>
-    </div>
-</section>
-
-<section id="pycodes">
-    <div class="container">
-        <h2>Python Codes</h2>
-        <ul>
-            <li><a href="https://github.com/rawatbr55/Rawat_Codes-.git" target="_blank">Chapter-wise Python Codes</a></li>
-        </ul>
-    </div>
-</section>
-
-<section id="contact">
-    <div class="container">
-        <h2>Contact</h2>
-        <p>Email: your-email@example.com</p>
-        <p>Phone: 0000000000</p>
-    </div>
-</section>
-
-<footer>
-    <p>© 2025 Brajesh Rawat | All Rights Reserved</p>
-</footer>
-
+<section id="about"><h2>About Me</h2></section>
+<section id="projects"><h2>Projects</h2></section>
+<section id="notes"><h2>Notes</h2></section>
+<section id="contact"><h2>Contact</h2></section>
+<footer>© 2025 Brajesh Rawat</footer>
+<script>
+function toggleMenu(){ document.getElementById('navMenu').classList.toggle('show'); }
+function toggleDarkMode(){ document.body.classList.toggle('dark-mode'); }
+let v = localStorage.getItem('visits') || 0; v++; localStorage.setItem('visits', v);
+document.getElementById('count').innerText = v;
+</script>
 </body>
 </html>
