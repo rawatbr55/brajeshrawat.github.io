@@ -39,7 +39,7 @@ nav a {
 }
 nav a:hover { color: #00e1ff; }
 
-/* ===== HERO SECTION ===== */
+/* ===== HOME SECTION ===== */
 #home {
     display: flex !important;
     justify-content: center;
@@ -48,7 +48,7 @@ nav a:hover { color: #00e1ff; }
     text-align: center;
     height: 100vh;
     color: white;
-    background: linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)), url('https://github.com/rawatbr55/rawatbr55.github.io/blob/main/photo.jpg');
+    background: linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)), url('bg-tech.jpg');
     background-size: cover;
     background-position: center;
     animation: fadeIn 1.5s;
@@ -70,12 +70,13 @@ nav a:hover { color: #00e1ff; }
     border: 4px solid #00e1ff;
     object-fit: cover;
     margin-bottom: 15px;
-    animation: zoomIn 1.5s;
 }
 
 .hero-title {
-    font-size: 30px;
+    font-size: 32px;
     font-weight: 700;
+    margin-top: 10px;
+    color: #fff;
 }
 .hero-subtitle {
     margin-top: 5px;
@@ -83,28 +84,9 @@ nav a:hover { color: #00e1ff; }
     opacity: 0.9;
 }
 
-/* Typing animation */
-.typing {
-    width: 0;
-    white-space: nowrap;
-    overflow: hidden;
-    border-right: 3px solid #00e1ff;
-    animation: typing 4s steps(30) infinite alternate;
-}
-
-@keyframes typing {
-    from { width: 0; }
-    to { width: 100%; }
-}
-
 /* Animations */
 @keyframes fadeIn { from {opacity:0;} to {opacity:1;} }
-@keyframes zoomIn { from {transform:scale(0.7);opacity:0;} to {transform:scale(1);opacity:1;} }
 @keyframes slideUp { from {transform:translateY(40px);opacity:0;} to {transform:translateY(0);opacity:1;} }
-
-/* ===== SECTIONS ===== */
-h2 { font-size: 32px; margin-bottom: 10px; }
-.container { padding: 15px; }
 
 /* ===== NOTES SECTION ===== */
 .notes-list a {
@@ -131,131 +113,8 @@ footer {
     color: white;
     margin-top: 40px;
 }
-/* Premium theme additions */
-:root {
-  --primary: #5b2cff;
-  --secondary: #00eaff;
-  --glass-bg: rgba(255, 255, 255, 0.15);
-  --blur: blur(12px);
-  --shadow: 0 8px 25px rgba(0,0,0,0.25);
-}
 
-.hero-container {
-  background: linear-gradient(135deg, rgba(91,44,255,0.85), rgba(0,234,255,0.85));
-  padding: 60px;
-  border-radius: 25px;
-  box-shadow: var(--shadow);
-  backdrop-filter: var(--blur);
-  border: 1px solid rgba(255,255,255,0.25);
-}
-
-.hero-title {
-  font-size: 3rem;
-  font-weight: 800;
-  background: linear-gradient(45deg, #fff, #d7d7ff);
-  -webkit-background-clip: text;
-  color: transparent;
-}
-
-.hero-photo-wrapper {
-  box-shadow: var(--shadow);
-  border-radius: 50%;
-  padding: 8px;
-  background: linear-gradient(135deg, var(--primary), var(--secondary));
-}
-
-button, .btn {
-  background: linear-gradient(135deg, var(--primary), var(--secondary));
-  padding: 12px 22px;
-  border-radius: 10px;
-  color: #fff;
-  font-weight: 600;
-  border: none;
-  cursor: pointer;
-  transition: 0.3s;
-  box-shadow: var(--shadow);
-}
-button:hover, .btn:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 12px 28px rgba(0,0,0,0.35);
-}
-
-.icon {
-  font-size: 24px;
-  margin-right: 8px;
-}
-
-/* Hide upload section */
-#uploadSection { display: none !important; }
-/* Premium theme additions */
-:root {
-  --primary: #5b2cff;
-  --secondary: #00eaff;
-  --glass-bg: rgba(255, 255, 255, 0.15);
-  --blur: blur(12px);
-  --shadow: 0 8px 25px rgba(0,0,0,0.25);
-}
-
-/* Floating Neon Background Shapes */
-.neon-shape {
-  position: absolute;
-  width: 180px;
-  height: 180px;
-  background: radial-gradient(circle, var(--secondary), transparent);
-  filter: blur(70px);
-  animation: float 9s infinite ease-in-out;
-  z-index: -1;
-}
-.neon-shape:nth-child(1) { top: 10%; left: 10%; animation-delay: 0s; }
-.neon-shape:nth-child(2) { top: 60%; left: 70%; animation-delay: 2s; }
-.neon-shape:nth-child(3) { top: 30%; left: 50%; animation-delay: 4s; }
-
-@keyframes float {
-  0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-40px); }
-}
-
-/* PDF Modal Viewer */
-#pdfModal {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  display: none;
-  background: rgba(0,0,0,0.7);
-  justify-content: center;
-  align-items: center;
-  z-index: 2000;
-}
-#pdfViewer {
-  width: 80%;
-  height: 80%;
-  background: #fff;
-  border-radius: 10px;
-  box-shadow: var(--shadow);
-}
-.closeModal {
-  position: absolute;
-  top: 20px;
-  right: 30px;
-  font-size: 2rem;
-  cursor: pointer;
-  color: white;
-}
-
-/* Animated glowing borders */
-.glow-frame {
-  border: 3px solid transparent;
-  border-radius: 50%;
-  padding: 8px;
-  background: linear-gradient(45deg, var(--primary), var(--secondary)) border-box;
-  -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
-  -webkit-mask-composite: xor;
-          mask-composite: exclude;
-}
-
-/* Scroll reveal */
+/* Reveal animation */
 section {
   opacity: 0;
   transform: translateY(40px);
@@ -265,9 +124,6 @@ section.show {
   opacity: 1;
   transform: translateY(0);
 }
-
-/* Hide upload section */
-#uploadSection { display: none !important; }
 </style>
 </head>
 <body>
@@ -283,11 +139,11 @@ section.show {
     </nav>
 </header>
 
-<!-- ===== HOME ===== -->
+<!-- ===== HOME SECTION ===== -->
 <section id="home" class="active-section">
     <div class="profile-box">
-        <img src="your_photo.jpg" class="profile-img" />
-        <h1 class="hero-title typing">Welcome to My Professional Portfolio</h1>
+        <img src="IMG_20241114_193907_292.jpg" class="profile-img" />
+        <h1 class="hero-title">Welcome to My Portfolio</h1>
         <p class="hero-subtitle">Developer • Student • Tech Enthusiast</p>
     </div>
 </section>
@@ -326,51 +182,7 @@ function showSection(id) {
     document.querySelectorAll('section').forEach(sec => sec.classList.remove('active-section'));
     document.getElementById(id).classList.add('active-section');
 }
-</script>
 
-
-<script>
-// Scroll reveal animations
-const sections = document.querySelectorAll('section');
-const reveal = () => {
-  sections.forEach(sec => {
-    const top = sec.getBoundingClientRect().top;
-    if(top < window.innerHeight - 100){ sec.classList.add('show'); }
-  });
-};
-window.addEventListener('scroll', reveal);
-
-// 3D Project Card Tilt
-const cards = document.querySelectorAll('.project-card');
-cards.forEach(card => {
-  card.addEventListener('mousemove', e => {
-    const rect = card.getBoundingClientRect();
-    let x = e.clientX - rect.left;
-    let y = e.clientY - rect.top;
-    let centerX = rect.width / 2;
-    let centerY = rect.height / 2;
-    let rotateX = ((y - centerY) / 20) * -1;
-    let rotateY = (x - centerX) / 20;
-    card.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
-  });
-  card.addEventListener('mouseleave', () => {
-    card.style.transform = "rotateX(0) rotateY(0)";
-  });
-});
-</script>
-
-<!-- Neon Background Shapes -->
-<div class="neon-shape"></div>
-<div class="neon-shape"></div>
-<div class="neon-shape"></div>
-
-<!-- PDF Viewer Modal -->
-<div id="pdfModal">
-  <span class="closeModal" onclick="closePDF()">×</span>
-  <iframe id="pdfViewer"></iframe>
-</div>
-
-<script>
 // Scroll reveal animations
 const sections = document.querySelectorAll('section');
 const reveal = () => {
@@ -381,34 +193,7 @@ const reveal = () => {
 };
 window.addEventListener('scroll', reveal);
 reveal();
-
-// 3D Project Card Tilt
-const cards = document.querySelectorAll('.project-card');
-cards.forEach(card => {
-  card.addEventListener('mousemove', e => {
-    const rect = card.getBoundingClientRect();
-    let x = e.clientX - rect.left;
-    let y = e.clientY - rect.top;
-    let centerX = rect.width / 2;
-    let centerY = rect.height / 2;
-    let rotateX = ((y - centerY) / 20) * -1;
-    let rotateY = (x - centerX) / 20;
-    card.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
-  });
-  card.addEventListener('mouseleave', () => {
-    card.style.transform = "rotateX(0) rotateY(0)";
-  });
-});
-
-// PDF Modal Viewer
-function openPDF(pdfFile){
-  document.getElementById('pdfViewer').src = pdfFile;
-  document.getElementById('pdfModal').style.display = 'flex';
-}
-function closePDF(){
-  document.getElementById('pdfModal').style.display = 'none';
-  document.getElementById('pdfViewer').src = '';
-}
 </script>
+
 </body>
 </html>
