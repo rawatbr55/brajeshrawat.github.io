@@ -30,14 +30,55 @@ header {
 }
 header h2 { margin: 0; font-weight: 600; }
 
+/* NAVIGATION */
+nav {
+    display: flex;
+    gap: 20px;
+}
 nav a {
     color: #fff;
-    margin-left: 20px;
     text-decoration: none;
     font-weight: 500;
     cursor: pointer;
 }
 nav a:hover { color: #00e1ff; }
+
+/* ===== HAMBURGER MENU ===== */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+}
+.hamburger span {
+    width: 28px;
+    height: 3px;
+    background: #fff;
+    margin: 4px 0;
+    border-radius: 5px;
+}
+
+/* Mobile Menu */
+@media(max-width: 768px){
+    nav {
+        position: absolute;
+        top: 70px;
+        right: 0;
+        width: 200px;
+        flex-direction: column;
+        background: rgba(0,0,0,0.9);
+        padding: 20px;
+        display: none;
+        border-radius: 8px;
+    }
+
+    nav.show {
+        display: flex;
+    }
+
+    .hamburger {
+        display: flex;
+    }
+}
 
 /* ===== HOME SECTION ===== */
 #home {
@@ -84,11 +125,10 @@ nav a:hover { color: #00e1ff; }
     opacity: 0.9;
 }
 
-/* Animations */
 @keyframes fadeIn { from {opacity:0;} to {opacity:1;} }
 @keyframes slideUp { from {transform:translateY(40px);opacity:0;} to {transform:translateY(0);opacity:1;} }
 
-/* ===== NOTES SECTION ===== */
+/* NOTES */
 .notes-list a {
     display: block;
     margin: 10px 0;
@@ -105,7 +145,7 @@ nav a:hover { color: #00e1ff; }
     color: white;
 }
 
-/* ===== FOOTER ===== */
+/* FOOTER */
 footer {
     text-align: center;
     padding: 20px;
@@ -114,7 +154,7 @@ footer {
     margin-top: 40px;
 }
 
-/* Reveal animation */
+/* Reveal Animation */
 section {
   opacity: 0;
   transform: translateY(40px);
@@ -130,7 +170,14 @@ section.show {
 
 <header>
     <h2>Brajesh Rawat</h2>
-    <nav>
+
+    <div class="hamburger" onclick="toggleMenu()">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+
+    <nav id="navMenu">
         <a onclick="showSection('home')">Home</a>
         <a onclick="showSection('about')">About</a>
         <a onclick="showSection('projects')">Projects</a>
@@ -181,6 +228,10 @@ section.show {
 function showSection(id) {
     document.querySelectorAll('section').forEach(sec => sec.classList.remove('active-section'));
     document.getElementById(id).classList.add('active-section');
+}
+
+function toggleMenu(){
+    document.getElementById('navMenu').classList.toggle('show');
 }
 
 // Scroll reveal animations
