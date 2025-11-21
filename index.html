@@ -3,118 +3,235 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Brajesh Rawat - Full System</title>
+<title>Brajesh Rawat - Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:Arial}
-body{background:#eef2f7;}
-header{position:fixed;top:0;width:100%;background:#000;color:#fff;padding:15px;display:flex;justify-content:space-between;align-items:center;z-index:1000}
-nav a{color:#fff;margin:0 10px;text-decoration:none}
-.container{max-width:1000px;margin:auto;padding:20px}
-section{padding:80px 20px;display:none}
-section.active{display:block}
-.home{height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;background:#0072ff;color:#fff}
-.home img{width:180px;height:180px;border-radius:50%;margin-bottom:15px;border:4px solid #fff}
-.dashboard{display:flex}
-.sidebar{width:220px;background:#111;height:100vh;color:#fff;padding:20px;position:fixed;top:0;left:0;padding-top:80px}
-.sidebar a{display:block;color:#fff;margin:15px 0;text-decoration:none;font-size:17px}
-.main-content{margin-left:250px;padding:20px;width:calc(100% - 250px)}
-.file-box{background:#fff;padding:15px;margin:10px 0;border-radius:8px;display:flex;justify-content:space-between;align-items:center}
-button{padding:10px 15px;border:none;border-radius:6px;background:#007bff;color:#fff;cursor:pointer}
-button:hover{opacity:.8}
-input{padding:10px;margin:10px 0;width:100%}
-.login-box{max-width:400px;margin:120px auto;background:#fff;padding:20px;border-radius:10px;box-shadow:0 0 10px rgba(0,0,0,.1)}
+/* ------------------ GLOBAL STYLE ------------------ */
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background: #f5f7fa;
+    overflow-x: hidden;
+}
+section { padding: 80px 20px; }
+h2 { text-align: center; font-size: 32px; margin-bottom: 20px; }
+
+/* ------------------ HEADER ------------------ */
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 15px 30px;
+    background: rgba(0,0,0,0.8);
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    backdrop-filter: blur(10px);
+    z-index: 1000;
+}
+nav a {
+    color: #fff;
+    margin-left: 20px;
+    text-decoration: none;
+    font-weight: 500;
+}
+nav a:hover { color: #00e1ff; }
+
+/* ------------------ HOME PAGE ------------------ */
+.home {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #0066ff, #00e1ff);
+    color: white;
+    text-align: center;
+    padding-top: 80px;
+}
+.home-title {
+    font-size: 45px;
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+.subtitle { font-size: 20px; opacity: 0.9; }
+.profile-img {
+    width: 180px; height: 180px;
+    border-radius: 50%;
+    border: 5px solid #fff;
+    object-fit: cover;
+    margin-bottom: 15px;
+    box-shadow: 0 0 20px rgba(255,255,255,0.6);
+}
+
+/* ------------------ LOGIN PANEL ------------------ */
+#loginBox {
+    width: 350px;
+    margin: 20px auto;
+    background: #fff;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.1);
+}
+#loginBox input {
+    width: 100%; padding: 12px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+}
+#loginBox button {
+    width: 100%; padding: 12px;
+    background: #007bff;
+    border: none;
+    color: white;
+    border-radius: 8px;
+    cursor: pointer;
+}
+#logoutBtn {
+    padding: 10px 18px;
+    background: red;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    display: none;
+}
+
+/* ------------------ UPLOAD PANEL ------------------ */
+#uploadSection {
+    display: none;
+    background: #fff;
+    padding: 20px;
+    width: 90%; max-width: 500px;
+    margin: auto;
+    border-radius: 12px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.1);
+}
+#uploadSection input { margin-top: 10px; }
+.upload-list a { display:block; margin-top:5px; }
+
 </style>
 </head>
 <body>
+
 <header>
-<h2>Brajesh Rawat</h2>
-<nav>
-<a href="#home" onclick="show('home')">Home</a>
-<a href="#login" onclick="show('login')">Login</a>
-<a href="#dashboard" onclick="show('dashboard')">Dashboard</a>
-</nav>
+    <h2>Brajesh Rawat</h2>
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#notes">Notes</a>
+        <a href="#contact">Contact</a>
+    </nav>
 </header>
-<section id="home" class="home active">
-<img src="yourphoto.jpg" />
-<h1>Welcome to My Portfolio</h1>
-<p>Explore projects, notes, uploads & more.</p>
+
+<!-- ------------------ HOME ------------------ -->
+<section id="home" class="home">
+    <img src="photo.jpg" class="profile-img" alt="Profile" />
+    <div class="home-title">Welcome to My Digital Portfolio</div>
+    <div class="subtitle">Student • Developer • Learner</div>
 </section>
-<section id="login">
-<div class="login-box">
-<h2>Login</h2>
-<input type="email" id="email" placeholder="Email">
-<input type="password" id="password" placeholder="Password">
-<button onclick="login()">Login</button>
-<p style="margin-top:10px">No account? <a href="#" onclick="signup()">Signup</a></p>
-</div>
+
+<!-- ------------------ LOGIN ------------------ -->
+<section id="loginBox">
+    <h3 style="text-align:center;">Admin Login</h3>
+    <input type="email" id="email" placeholder="Enter Email" />
+    <input type="password" id="password" placeholder="Enter Password" />
+    <button onclick="login()">Login</button>
 </section>
-<section id="dashboard">
-<div class="dashboard">
-<div class="sidebar">
-<h3>Dashboard</h3>
-<a onclick="loadUploads()">My Uploads</a>
-<a onclick="logout()">Logout</a>
-</div>
-<div class="main-content">
-<h2>Upload Files</h2>
-<input type="file" id="fileUpload" />
-<button onclick="uploadFile()">Upload</button>
-<div id="fileList"></div>
-</div>
-</div>
+<button id="logoutBtn" onclick="logout()">Logout</button>
+
+<!-- ------------------ UPLOAD SECTION ------------------ -->
+<section id="uploadSection">
+    <h2>Upload Notes (PDF / Images)</h2>
+    <input type="file" id="fileUpload" />
+    <button onclick="uploadFile()" style="margin-top:10px; padding:10px;">Upload</button>
+    <div class="upload-list" id="fileList"></div>
 </section>
+
+<!-- ------------------ ABOUT ------------------ -->
+<section id="about"><h2>About Me</h2></section>
+
+<!-- ------------------ PROJECTS ------------------ -->
+<section id="projects"><h2>Projects</h2></section>
+
+<!-- ------------------ NOTES ------------------ -->
+<section id="notes">
+    <h2>Notes</h2>
+    <div id="notesContainer"></div>
+</section>
+
+<!-- ------------------ CONTACT ------------------ -->
+<section id="contact"><h2>Contact</h2></section>
+
 <script type="module">
-import { initializeApp } from "https://www.gstatic.com/firebasejs/10.1.0/firebase-app.js";
-import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword, signOut } from "https://www.gstatic.com/firebasejs/10.1.0/firebase-auth.js";
-import { getStorage, ref, uploadBytes, listAll, getDownloadURL, deleteObject } from "https://www.gstatic.com/firebasejs/10.1.0/firebase-storage.js";
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+import { getAuth, signInWithEmailAndPassword, signOut } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
+import { getStorage, ref, uploadBytes, getDownloadURL, listAll } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-storage.js";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyA19S8vGKObxrORhez_uFYLoKk2I3fQM1s",
-  authDomain: "brajesh-b9592.firebaseapp.com",
-  projectId: "brajesh-b9592",
-  storageBucket: "brajesh-b9592.firebasestorage.app",
-  messagingSenderId: "117767040406",
-  appId: "1:117767040406:web:d8567f457faea16985c1b7",
-  measurementId: "G-XMXF8RBKP7"
+    apiKey: "AIzaSyA19S8vGKObxrORhez_uFYLoKk2I3fQM1s",
+    authDomain: "brajesh-b9592.firebaseapp.com",
+    projectId: "brajesh-b9592",
+    storageBucket: "brajesh-b9592.firebasestorage.app",
+    messagingSenderId: "117767040406",
+    appId: "1:117767040406:web:d8567f457faea16985c1b7",
+    measurementId: "G-XMXF8RBKP7"
 };
 
 const app = initializeApp(firebaseConfig);
-const auth = getAuth();
-const storage = getStorage();
+const auth = getAuth(app);
+const storage = getStorage(app);
 
-window.show = function(page){ document.querySelectorAll('section').forEach(s=>s.classList.remove('active')); document.getElementById(page).classList.add('active'); }
+window.login = function () {
+    const email = document.getElementById("email").value;
+    const password = document.getElementById("password").value;
 
-window.login = function(){
-let email=document.getElementById("email").value;
-let pass=document.getElementById("password").value;
-signInWithEmailAndPassword(auth,email,pass).then(()=>{show('dashboard')}).catch(e=>alert(e.message));}
+    signInWithEmailAndPassword(auth, email, password)
+        .then(() => {
+            document.getElementById("uploadSection").style.display = "block";
+            document.getElementById("logoutBtn").style.display = "block";
+        })
+        .catch(() => alert("Invalid Login!"));
+};
 
-window.signup = function(){
-let email=document.getElementById("email").value;
-let pass=document.getElementById("password").value;
-createUserWithEmailAndPassword(auth,email,pass).then(()=>alert("Account Created"));}
+window.logout = function () {
+    signOut(auth).then(() => {
+        document.getElementById("uploadSection").style.display = "none";
+        document.getElementById("logoutBtn").style.display = "none";
+    });
+};
 
-window.logout = function(){signOut(auth).then(()=>show('home'));}
+window.uploadFile = function () {
+    const file = document.getElementById("fileUpload").files[0];
+    if (!file) return alert("Select a file first");
 
-window.uploadFile = function(){
-let file=document.getElementById("fileUpload").files[0];
-if(!file){alert("Select file");return;}
-let storageRef=ref(storage,"uploads/"+file.name);
-uploadBytes(storageRef,file).then(()=>{alert("Uploaded");loadUploads();});}
+    const fileRef = ref(storage, `notes/${file.name}`);
+    uploadBytes(fileRef, file).then(() => {
+        alert("Uploaded Successfully!");
+        loadFiles();
+    });
+};
 
-window.loadUploads = function(){
-let listRef=ref(storage,"uploads");
-listAll(listRef).then(res=>{
-let html="";
-res.items.forEach(item=>{
-getDownloadURL(item).then(url=>{
-html+=`<div class='file-box'>${item.name}<div><a href='${url}' target='_blank'>View</a> <button onclick="del('${item.fullPath}')">Delete</button></div></div>`;
-document.getElementById("fileList").innerHTML=html;
-});
-});
-})}
+function loadFiles() {
+    const listRef = ref(storage, "notes/");
+    listAll(listRef).then(res => {
+        const fileListDiv = document.getElementById("notesContainer");
+        fileListDiv.innerHTML = "";
 
-window.del=function(path){let d=ref(storage,path);deleteObject(d).then(()=>{alert("Deleted");loadUploads();});}
+        res.items.forEach(itemRef => {
+            getDownloadURL(itemRef).then(url => {
+                fileListDiv.innerHTML += `<a href="${url}" target="_blank">${itemRef.name}</a><br>`;
+            });
+        });
+    });
+}
+loadFiles();
 </script>
+
 </body>
 </html>
