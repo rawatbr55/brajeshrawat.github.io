@@ -1,9 +1,9 @@
-WebsitebsiteDOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Brajesh Rawat - Personal Website</title>
+    <title>Brajesh Rawat - Professional Website</title>
     <style>
         body {
             margin: 0;
@@ -11,6 +11,8 @@ WebsitebsiteDOCTYPE html>
             scroll-behavior: smooth;
             background: #f4f4f4;
         }
+
+        /* Header */
         header {
             position: fixed;
             top: 0;
@@ -23,18 +25,53 @@ WebsitebsiteDOCTYPE html>
             align-items: center;
             z-index: 1000;
         }
-        header a {
+        header h2 {
+            margin: 0;
+        }
+
+        /* Dropdown Menu */
+        nav {
+            display: flex;
+            gap: 20px;
+        }
+        .dropdown {
+            position: relative;
+        }
+        .dropdown > a {
             color: #fff;
-            margin: 0 15px;
             text-decoration: none;
             font-size: 16px;
-            transition: 0.3s;
+            padding: 8px;
         }
-        header a:hover {
+        .dropdown:hover > a {
             color: #00e1ff;
         }
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            top: 35px;
+            background: #000;
+            padding: 10px;
+            border-radius: 6px;
+            min-width: 150px;
+        }
+        .dropdown-menu a {
+            display: block;
+            padding: 8px;
+            color: #fff;
+            text-decoration: none;
+        }
+        .dropdown-menu a:hover {
+            background: #00e1ff;
+            color: #000;
+        }
+        .dropdown:hover .dropdown-menu {
+            display: block;
+        }
+
+        /* Sections */
         section {
-            padding: 80px 20px;
+            padding: 100px 20px;
             text-align: center;
             animation: fadeIn 1.2s ease;
         }
@@ -42,6 +79,7 @@ WebsitebsiteDOCTYPE html>
             from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
         }
+
         .home {
             height: 100vh;
             display: flex;
@@ -52,17 +90,25 @@ WebsitebsiteDOCTYPE html>
             color: white;
         }
         .profile-img {
-            width: 150px;
-            height: 150px;
+            width: 160px;
+            height: 160px;
             border-radius: 50%;
             background: #fff;
             margin-bottom: 15px;
             object-fit: cover;
         }
+
         .container {
-            max-width: 900px;
+            max-width: 1000px;
             margin: auto;
+            text-align: left;
         }
+
+        h2 {
+            text-align: center;
+        }
+
+        /* Footer */
         footer {
             background: #000;
             color: #fff;
@@ -72,63 +118,136 @@ WebsitebsiteDOCTYPE html>
     </style>
 </head>
 <body>
-    <header>
-        <h2>Brajesh Rawat</h2>
-        <nav>
+
+<header>
+    <h2>Brajesh Rawat</h2>
+    <nav>
+        <div class="dropdown">
             <a href="#home">Home</a>
-            <a href="#about">About Me</a>
+        </div>
+
+        <div class="dropdown">
+            <a href="#about">About</a>
+            <div class="dropdown-menu">
+                <a href="#skills">Skills</a>
+                <a href="#education">Education</a>
+            </div>
+        </div>
+
+        <div class="dropdown">
             <a href="#projects">Projects</a>
-            <a href="#notes">Notes for Students</a>
-            <a href="#python">Python Codes</a>
+            <div class="dropdown-menu">
+                <a href="#webdev">Web Development</a>
+                <a href="#pythonpro">Python Projects</a>
+            </div>
+        </div>
+
+        <div class="dropdown">
+            <a href="#notes">Notes</a>
+            <div class="dropdown-menu">
+                <a href="#csnotes">Computer Science</a>
+                <a href="#pycodes">Python Codes</a>
+            </div>
+        </div>
+
+        <div class="dropdown">
             <a href="#contact">Contact</a>
-        </nav>
-    </header>
-
-    <section id="home" class="home">
-        <img src="photo.jpg" alt="Your Photo" class="profile-img">
-        <h>PyLearner - Notes and Project</h>
-        <p>I'm <b>Brajesh Rawat</b> — explore my work, notes & Python codes.</p>
-    </section>
-
-    <section id="about">
-        <div class="container">
-            <h2>About Me</h2>
-            <p>Write about yourself here. I can update it for you if you tell me what to write.</p>
         </div>
-    </section>
+    </nav>
+</header>
 
-    <section id="projects">
-        <div class="container">
-            <h2>Projects</h2>
-            <p>Add your project details here. I can fill this section too.</p>
-        </div>
-    </section>
+<section id="home" class="home">
+    <img src="photo.jpg" class="profile-img" alt="Profile Photo" />
+    <h1>PyLearner – Notes & Projects</h1>
+    <p>I'm <b>Brajesh Rawat</b> — explore my portfolio, notes & programming work.</p>
+</section>
 
-    <section id="notes">
-        <div class="container">
-            <h2>Notes for Students</h2>
-            <li><a href="https://github.com/rawatbr55/rawatbr55.github.io/blob/main/Computer_Science_Syllabius.pdf" target="_blank">Computer Science 11th Syllabus</a></li>
-        </div>
-    </section>
+<section id="about">
+    <div class="container">
+        <h2>About Me</h2>
+        <p>Write about yourself here. Add your background, goals, achievements, and experience.</p>
+    </div>
+</section>
 
-    <section id="python">
-        <div class="container">
-            <h2>Python Codes</h2>
-            <li><a href="https://github.com/rawatbr55/Rawat_Codes-.git" target="_blank">Chapter 11 Codes</li> 
-        </div>
-    </section>
+<section id="skills">
+    <div class="container">
+        <h2>Skills</h2>
+        <ul>
+            <li>Python Programming</li>
+            <li>Web Development (HTML, CSS, JS)</li>
+            <li>Data Science Basics</li>
+            <li>Problem Solving</li>
+        </ul>
+    </div>
+</section>
 
-    <section id="contact">
-        <div class="container">
-            <h2>Contact</h2>
-            <p>Email: your-email@example.com</p>
-            <p>Phone: 0000000000</p>
-        </div>
-    </section>
+<section id="education">
+    <div class="container">
+        <h2>Education</h2>
+        <ul>
+            <li>Class 12 – Computer Science</li>
+            <li>Various Programming Certifications</li>
+        </ul>
+    </div>
+</section>
 
-    <footer>
-        <p>© 2025 Brajesh Rawat | All Rights Reserved</p>
-    </footer>
+<section id="projects">
+    <div class="container">
+        <h2>Projects</h2>
+        <p>Showcase of top projects.</p>
+    </div>
+</section>
+
+<section id="webdev">
+    <div class="container">
+        <h2>Web Development Projects</h2>
+        <ul>
+            <li>Portfolio Website</li>
+            <li>Student Notes Website</li>
+        </ul>
+    </div>
+</section>
+
+<section id="pythonpro">
+    <div class="container">
+        <h2>Python Projects</h2>
+        <ul>
+            <li>Calculator App</li>
+            <li>Data Entry Management</li>
+            <li>Mini Games</li>
+        </ul>
+    </div>
+</section>
+
+<section id="notes">
+    <div class="container">
+        <h2>Notes for Students</h2>
+        <ul>
+            <li><a href="https://github.com/rawatbr55/rawatbr55.github.io/blob/main/Computer_Science_Syllabius.pdf" target="_blank">Computer Science Syllabus</a></li>
+        </ul>
+    </div>
+</section>
+
+<section id="pycodes">
+    <div class="container">
+        <h2>Python Codes</h2>
+        <ul>
+            <li><a href="https://github.com/rawatbr55/Rawat_Codes-.git" target="_blank">Chapter-wise Python Codes</a></li>
+        </ul>
+    </div>
+</section>
+
+<section id="contact">
+    <div class="container">
+        <h2>Contact</h2>
+        <p>Email: your-email@example.com</p>
+        <p>Phone: 0000000000</p>
+    </div>
+</section>
+
+<footer>
+    <p>© 2025 Brajesh Rawat | All Rights Reserved</p>
+</footer>
 
 </body>
 </html>
