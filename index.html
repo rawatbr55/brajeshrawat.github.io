@@ -129,12 +129,18 @@ section{display:none;}
     <button class="toggle-btn" onclick="toggleDarkMode()">Dark Mode</button>
 </header>
 <section id="home" class="home">
-    <img src="photo.jpg" class="profile-img" />
-    <h1>Welcome to My Portfolio</h1>
-    
-    
+    <div class="welcome-box">
+        <h1>Welcome to My Portfolio</h1>
+        <p class="subtitle">Explore my projects, notes, and personal work</p>
+
+        <div class="highlight-grid">
+            <div class="card">🔥 Latest Tech Updates</div>
+            <div class="card">📚 Study Notes & PDFs</div>
+            <div class="card">💼 My Projects</div>
+        </div>
+
+        <button class="login-btn" onclick="showLogin()">Login to Upload Files</button>
     </div>
-    
 </section>
 <section id="about"><h2>About Me</h2></section>
 <section id="projects"><h2>Projects</h2></section>
@@ -149,6 +155,26 @@ section{display:none;}
 </section>
 <section id="contact"><h2>Contact</h2></section>
 <footer>© 2025 Brajesh Rawat</footer>
+
+<!-- Login Modal -->
+<div id="loginModal" class="modal" style="display:none;">
+    <div class="modal-content">
+        <h2>Login</h2>
+        <input type="text" id="username" placeholder="Username" />
+        <input type="password" id="password" placeholder="Password" />
+        <button onclick="loginUser()">Login</button>
+        <button onclick="closeLogin()" class="close-btn">Close</button>
+    </div>
+</div>
+
+<!-- Upload Section -->
+<section id="uploadSection" style="display:none; padding:30px;">
+    <h2>Upload Files (PDF / Image)</h2>
+    <input type="file" id="fileInput" />
+    <button onclick="uploadFile()">Upload</button>
+
+    <div id="uploadedFiles" style="margin-top:20px;"></div>
+</section>
 <script>
 // Hide all sections except home on load
 function showSection(id){
@@ -201,6 +227,32 @@ links.forEach(link => {
 // Default load: show home only
 sections.forEach(sec => sec.style.display = 'none');
 document.getElementById('home').style.display = 'block';
+// Login System
+function showLogin(){ document.getElementById('loginModal').style.display='block'; }
+function closeLogin(){ document.getElementById('loginModal').style.display='none'; }
+
+function loginUser(){
+    let user=document.getElementById('username').value;
+    let pass=document.getElementById('password').value;
+    if(user==='admin' && pass==='1234'){
+        alert('Login Successful!');
+        document.getElementById('loginModal').style.display='none';
+        document.getElementById('uploadSection').style.display='block';
+    }
+    else{ alert('Invalid login'); }
+}
+
+// Upload File
+function uploadFile(){
+    let file=document.getElementById('fileInput').files[0];
+    if(!file){ alert('Select a file first'); return; }
+
+    let list=document.getElementById('uploadedFiles');
+    let item=document.createElement('p');
+    item.textContent="Uploaded: "+file.name;
+    list.appendChild(item);
+}
+
 </script>
 </body>
 </html>
