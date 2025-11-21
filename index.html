@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Brajesh Rawat - Personal Website</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            scroll-behavior: smooth;
+            background: #f4f4f4;
+        }
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: #000;
+            color: #fff;
+            padding: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+        }
+        header a {
+            color: #fff;
+            margin: 0 15px;
+            text-decoration: none;
+            font-size: 16px;
+            transition: 0.3s;
+        }
+        header a:hover {
+            color: #00e1ff;
+        }
+        section {
+            padding: 80px 20px;
+            text-align: center;
+            animation: fadeIn 1.2s ease;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .home {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #00c6ff, #0072ff);
+            color: white;
+        }
+        .profile-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background: #fff;
+            margin-bottom: 15px;
+            object-fit: cover;
+        }
+        .container {
+            max-width: 900px;
+            margin: auto;
+        }
+        footer {
+            background: #000;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h2>Brajesh Rawat</h2>
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#about">About Me</a>
+            <a href="#projects">Projects</a>
+            <a href="#notes">Notes for Students</a>
+            <a href="#python">Python Codes</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+
+    <section id="home" class="home">
+        <img src="photo.jpg" alt="Your Photo" class="profile-img">
+        <h1>Welcome to My Personal Website</h1>
+        <p>I'm <b>Brajesh Rawat</b> — explore my work, notes & Python codes.</p>
+    </section>
+
+    <section id="about">
+        <div class="container">
+            <h2>About Me</h2>
+            <p>Write about yourself here. I can update it for you if you tell me what to write.</p>
+        </div>
+    </section>
+
+    <section id="projects">
+        <div class="container">
+            <h2>Projects</h2>
+            <p>Add your project details here. I can fill this section too.</p>
+        </div>
+    </section>
+
+    <section id="notes">
+        <div class="container">
+            <h2>Notes for Students</h2>
+            <p>Upload or list your notes here.</p>
+        </div>
+    </section>
+
+    <section id="python">
+        <div class="container">
+            <h2>Python Codes</h2>
+            <p>You can upload your Python files or show sample codes here.</p>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="container">
+            <h2>Contact</h2>
+            <p>Email: your-email@example.com</p>
+            <p>Phone: 0000000000</p>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2025 Brajesh Rawat | All Rights Reserved</p>
+    </footer>
+
+</body>
+</html>
